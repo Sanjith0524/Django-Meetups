@@ -3,13 +3,15 @@ from django.views.generic import ListView
 from django.http import HttpResponse
 from .models import Meetup,Participants
 from .forms import RegistrationForm
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 def index(request):
     meetups = Meetup.objects.all()
 
     return render(request,"meetups/index.html",{"meetups":meetups})
-
+csrf_protected_method = method_decorator(csrf_protect)
 def meetup_details(request,slug):
     try:
         selected_meetups = Meetup.objects.get(slug=slug)
