@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css_files %}{% endblock%}
+</head>
+
+<body>
+    <header id="main-header">
+        <nav><a href="/meetups" id="main-logo">Meetups</a></nav>
+        <h1>{% block header_heading %}{% endblock %}</h1>
+        <p>{% block header_description %}{% endblock %}<p>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
